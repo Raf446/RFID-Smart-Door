@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "author": "Anonymous",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 200, "left": 200, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": 200, "left": 550, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -50, "left": 400, "attrs": { "pins": "i2c" } },
+    { "type": "wokwi-rfid", "id": "rfid1", "top": -80, "left": 100, "attrs": {} },
+    { "type": "wokwi-led-rgb", "id": "rgb1", "top": 350, "left": 50, "attrs": {} },
+    { "type": "wokwi-resistor", "id": "r1", "top": 280, "left": -20, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 300, "left": -20, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r3", "top": 320, "left": -20, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    [ "uno:5V", "lcd1:VCC", "red", [ "v0" ] ],
+    [ "uno:GND.1", "lcd1:GND", "black", [ "v0" ] ],
+    [ "uno:A4", "lcd1:SDA", "green", [ "v0" ] ],
+    [ "uno:A5", "lcd1:SCL", "green", [ "v0" ] ],
+    [ "uno:5V", "servo1:V+", "red", [ "v0" ] ],
+    [ "uno:GND.1", "servo1:GND", "black", [ "v0" ] ],
+    [ "uno:3", "servo1:PWM", "orange", [ "v0" ] ],
+    [ "uno:3.3V", "rfid1:3.3V", "red", [ "v0" ] ],
+    [ "uno:GND.2", "rfid1:GND", "black", [ "v0" ] ],
+    [ "uno:9", "rfid1:RST", "yellow", [ "v0" ] ],
+    [ "uno:10", "rfid1:SDA", "purple", [ "v0" ] ],
+    [ "uno:11", "rfid1:MOSI", "blue", [ "v0" ] ],
+    [ "uno:12", "rfid1:MISO", "cyan", [ "v0" ] ],
+    [ "uno:13", "rfid1:SCK", "white", [ "v0" ] ],
+    [ "uno:5", "r1:1", "red", [ "v0" ] ],
+    [ "r1:2", "rgb1:R", "red", [ "v0" ] ],
+    [ "uno:6", "r2:1", "green", [ "v0" ] ],
+    [ "r2:2", "rgb1:G", "green", [ "v0" ] ],
+    [ "uno:9", "r3:1", "blue", [ "v0" ] ],
+    [ "r3:2", "rgb1:B", "blue", [ "v0" ] ],
+    [ "uno:GND.2", "rgb1:COM", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
